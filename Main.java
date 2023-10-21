@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 class Menu {
    String name;
@@ -30,6 +31,7 @@ public class Main {
       int[] order = new int[menuList.length];
       int selectedIndex = -1;
       double totalBill = 0;
+      StringBuilder beverageDiscountReceipt = new StringBuilder();
 
       while (true) {
          System.out.println("===============================================================");
@@ -88,38 +90,34 @@ public class Main {
          discount = 0.1 * totalBill;
       }
 
-      if (totalBill > 50000) {
-         boolean hasBeverage = false;
-         int minumanGratis = 0;
-
-         for (int i = 0; i < menuList.length; i++) {
-            if (menuList[i].category.equals("minuman") && order[i] > 0) {
-               hasBeverage = true;
-               minumanGratis += order[i];
-            }
-         }
-
-         if (hasBeverage) {
-            int minumanBonus = minumanGratis / 2;
-            for (int i = 0; i < menuList.length; i++) {
-               if (menuList[i].category.equals("minuman") && order[i] > 0) {
-                  int quantity = order[i];
-                  int minumanYgDapatGratis = Math.min(quantity, minumanGratis / 2);
-                  if (minumanYgDapatGratis > 0) {
-                     System.out.println(menuList[i].name + " (Free) Rp 0 x" + minumanYgDapatGratis + " Rp 0");
-                  }
-                  order[i] -= minumanYgDapatGratis;
-               }
-            }
+      boolean hasMinumanGratis = false;
+      for (int i = 0; i < menuList.length; i++) {
+         if (menuList[i].category.equals("minuman") && order[i] > 0) {
+            hasMinumanGratis = true;
+            break;
          }
       }
 
+      if (totalBill > 50000 && hasMinumanGratis) {
+         int randomMinumanIndex = -1;
+         while (randomMinumanIndex == -1) {
+            int index = new Random().nextInt(menuList.length);
+            if (menuList[index].category.equals("minuman") && order[index] > 0) {
+               randomMinumanIndex = index;
+            }
+         }
+
+         order[randomMinumanIndex] -= 1;
+         beverageDiscountReceipt.append("Selamat! Anda mendapat ").append(menuList[randomMinumanIndex].name)
+               .append(" 1 Pcs secara gratis... ");
+      }
+
       totalBill = totalBill - discount + tax + serviceCharge;
-      printReceipt(menuList, order, totalBill, discount, tax, serviceCharge);
+      printReceipt(menuList, order, totalBill, discount, tax, serviceCharge, beverageDiscountReceipt.toString());
    }
 
    public static void printReceipt(Menu[] menuList, int[] order, double totalBill, double discount, double tax,
-         double serviceCharge) {
+         double serviceCharge, String beverageDiscountReceipt) {
       System.out.println("\nStruk Pesanan:");
       System.out.println("==============================================================================");
       System.out.println("No.   Nama Menu         Harga/Item     Jumlah     Subtotal");
@@ -131,6 +129,9 @@ public class Main {
          }
       }
       System.out.println("-----------------------------------------------------------------------------");
+      if (!beverageDiscountReceipt.isEmpty()) {
+         System.out.println(beverageDiscountReceipt);
+      }
       if (discount > 0) {
          System.out.println(String.format("Diskon (10%%):              -Rp %.2f", discount));
       }
