@@ -68,6 +68,7 @@ public class Main {
                System.out.print("Apakah ingin memesan menu lagi? (Ya atau tidak, 1 atau 0): ");
                String anotherOrder = scanner.nextLine();
                if (anotherOrder.equalsIgnoreCase("tidak") || anotherOrder.equals("0")) {
+                  scanner.close();
                   break;
                }
             } else {
