@@ -6,6 +6,11 @@ class Menu {
    double price;
    String category;
 
+   /**
+    * @param name
+    * @param price
+    * @param category
+    */
    public Menu(String name, double price, String category) {
       this.name = name;
       this.price = price;
@@ -14,6 +19,9 @@ class Menu {
 }
 
 public class Main {
+   /**
+    * @param args
+    */
    public static void main(String[] args) {
       Menu[] menuList = {
             new Menu("Nasi Padang", 25000, "makanan"),
@@ -117,6 +125,15 @@ public class Main {
       printReceipt(menuList, order, totalBill, discount, tax, serviceCharge, beverageDiscountReceipt.toString());
    }
 
+   /**
+    * @param menuList
+    * @param order
+    * @param totalBill
+    * @param discount
+    * @param tax
+    * @param serviceCharge
+    * @param beverageDiscountReceipt
+    */
    public static void printReceipt(Menu[] menuList, int[] order, double totalBill, double discount, double tax,
          double serviceCharge, String beverageDiscountReceipt) {
       System.out.println("\nStruk Pesanan:");
