@@ -137,9 +137,19 @@ public class Main {
    public static void printReceipt(Menu[] menuList, int[] order, double totalBill, double discount, double tax,
          double serviceCharge, String beverageDiscountReceipt) {
       System.out.println("\nStruk Pesanan:");
+
+      String namaWarung = "WARUNG YUSUF KULIAH";
+      String alamatWarung = "Jl. Malioboro Simpang 4 No. 30";
+
+      int centerOffset = (int) (40 - namaWarung.length() / 2);
+      System.out.println(String.format("%" + centerOffset + "s%s", "", namaWarung));
+
+      centerOffset = (int) (40 - alamatWarung.length() / 2);
+      System.out.println(String.format("%" + centerOffset + "s%s", "", alamatWarung));
+
       System.out.println("==============================================================================");
       System.out.println("No.   Nama Menu         Harga/Item     Jumlah     Subtotal");
-      System.out.println("-----------------------------------------------------------------------------");
+      System.out.println("==============================================================================");
       for (int i = 0; i < menuList.length; i++) {
          if (order[i] > 0) {
             System.out.println(String.format("%-4s  %-16s  Rp %-10.2f  x%-8d  Rp %-10.2f",
@@ -159,4 +169,5 @@ public class Main {
       System.out.println(String.format("Total Biaya Pesanan:        Rp %.2f", totalBill));
       System.out.println("==============================================================================");
    }
+
 }
