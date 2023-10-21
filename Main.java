@@ -6,6 +6,7 @@ import java.util.Random;
  * ! Yusuf
  * ? Last Update 2023-10-21
  * * Tools (VS Code, JDK 1.8)
+ * @ Repo Github : https://github.com/limitedYusuf/msim4301.14-tugas-1
  */
 class Menu {
    String name;
