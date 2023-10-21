@@ -60,7 +60,7 @@ public class Main {
 
          String input = scanner.nextLine();
 
-         if (input.equals("q")) {
+         if (input.equals("q") || input.equals("Q")) {
             System.out.println("Yah sayang sekali, kami tunggu pemesanan lain :)");
             break;
          }
@@ -93,7 +93,7 @@ public class Main {
 
       double discount = 0;
       double tax = 0.1 * totalBill;
-      double serviceCharge = 20000;
+      double serviceCharge = (totalBill > 0) ? 20000 : 0;
 
       if (totalBill > 100000) {
          discount = 0.1 * totalBill;
