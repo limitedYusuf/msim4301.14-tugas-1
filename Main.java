@@ -1,6 +1,12 @@
 import java.util.Scanner;
 import java.util.Random;
 
+/**
+ * Tugas 1 : Menu Restoran
+ * ! Yusuf
+ * ? Last Update 2023-10-21
+ * * Tools (VS Code, JDK 1.8)
+ */
 class Menu {
    String name;
    double price;
