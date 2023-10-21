@@ -37,7 +37,19 @@ public class Main {
             new Menu("Es Jeruk", 6000, "minuman"),
             new Menu("Mie Goreng", 22000, "makanan"),
             new Menu("Nasi Goreng", 23000, "makanan"),
-            new Menu("Kopi Hitam", 8000, "minuman")
+            new Menu("Kopi Hitam", 8000, "minuman"),
+            new Menu("Soto Ayam", 24000, "makanan"),
+            new Menu("Bakso", 18000, "makanan"),
+            new Menu("Teh Hangat", 4000, "minuman"),
+            new Menu("Pecel Lele", 26000, "makanan"),
+            new Menu("Ayam Bakar", 28000, "makanan"),
+            new Menu("Jus Alpukat", 8000, "minuman"),
+            new Menu("Gado-Gado", 22000, "makanan"),
+            new Menu("Sop Iga", 35000, "makanan"),
+            new Menu("Es Campur", 7000, "minuman"),
+            new Menu("Mie Ayam", 21000, "makanan"),
+            new Menu("Rendang", 27000, "makanan"),
+            new Menu("Es Kelapa Muda", 7500, "minuman")
       };
 
       Scanner scanner = new Scanner(System.in);
