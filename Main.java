@@ -102,26 +102,25 @@ public class Main {
       printReceipt(menuList, order, totalBill, discount, tax, serviceCharge);
    }
 
-   public static void printReceipt(Menu[] menuList, int[] order, double totalBill, double discount, double tax,
-         double serviceCharge) {
+   public static void printReceipt(Menu[] menuList, int[] order, double totalBill, double discount, double tax, double serviceCharge) {
       System.out.println("\nStruk Pesanan:");
-      System.out.println("======================================================================");
-      System.out.println("No.   Nama Menu         Harga/Item    Jumlah   Subtotal");
-      System.out.println("----------------------------------------------------------------------");
+      System.out.println("==============================================================================");
+      System.out.println("No.   Nama Menu         Harga/Item     Jumlah     Subtotal");
+      System.out.println("-----------------------------------------------------------------------------");
       for (int i = 0; i < menuList.length; i++) {
-         if (order[i] > 0) {
-            System.out.println(String.format("%-4s %-15s Rp %-8.2f x%-9d Rp %-8.2f",
+          if (order[i] > 0) {
+              System.out.println(String.format("%-4s  %-16s  Rp %-10.2f  x%-8d  Rp %-10.2f",
                   i + 1, menuList[i].name, menuList[i].price, order[i], (menuList[i].price * order[i])));
-         }
+          }
       }
-      System.out.println("----------------------------------------------------------------------");
+      System.out.println("-----------------------------------------------------------------------------");
       if (discount > 0) {
-         System.out.println(String.format("Diskon (10%%):     -Rp %.2f", discount));
+          System.out.println(String.format("Diskon (10%%):              -Rp %.2f", discount));
       }
-      System.out.println(String.format("Pajak (10%%):          Rp %.2f", tax));
-      System.out.println(String.format("Biaya Pelayanan:       Rp %.2f", serviceCharge));
-      System.out.println("----------------------------------------------------------------------");
-      System.out.println(String.format("Total Biaya Pesanan:   Rp %.2f", totalBill));
-      System.out.println("======================================================================");
-   }
+      System.out.println(String.format("Pajak (10%%):                Rp %.2f", tax));
+      System.out.println(String.format("Biaya Pelayanan:            Rp %.2f", serviceCharge));
+      System.out.println("-----------------------------------------------------------------------------");
+      System.out.println(String.format("Total Biaya Pesanan:        Rp %.2f", totalBill));
+      System.out.println("==============================================================================");
+  }
 }
